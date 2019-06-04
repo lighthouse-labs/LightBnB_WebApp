@@ -21,7 +21,7 @@ module.exports = function(router, database) {
   /**
    * Check if a user exists with a given username and password
    * @param {String} email
-   * @param {String} password unencrypted
+   * @param {String} password encrypted
    */
   const login =  function(email, password) {
     return database.getUserWithEmail(email)
