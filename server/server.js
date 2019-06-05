@@ -30,7 +30,7 @@ app.use('/users', userRouter);
 
 app.use(express.static(path.join(__dirname, '../public')));
 
-app.get("/test", async (req, res) => {
+app.get("/test", (req, res) => {
   res.send("🤗");
 });
 
