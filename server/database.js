@@ -1,5 +1,4 @@
 const properties = require('./json/properties.json');
-const reservations = require('./json/reservations.json');
 const users = require('./json/users.json');
 
 /// Users
@@ -51,7 +50,7 @@ exports.addUser = addUser;
 
 const getAllProperties = function(options, limit = 10) {
   const limitedProperties = {};
-  for (let i= 0; i < limit; i++) {
+  for (let i = 1; i <= limit; i++) {
     limitedProperties[i] = properties[i];
   }
   return Promise.resolve(limitedProperties);
@@ -62,16 +61,7 @@ exports.getAllProperties = getAllProperties;
 /// Reservations
 
 const getAllReservations = function(guest_id) {
-  const myReservationProperties = {};
-  for (const reservationId in reservations) {
-    const reservation = reservations[reservationId];
-    if (reservation.guest_id === guest_id) {
-      const property = properties[reservation.property_id];
-      myReservationProperties[property.id] = property;
-    }
-  }
-
-  return Promise.resolve(myReservationProperties);
+  return getAllProperties(null, 2);
 }
 exports.getAllReservations = getAllReservations;
 
