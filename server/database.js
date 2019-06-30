@@ -4,9 +4,9 @@ const users = require('./json/users.json');
 /// Users
 
 /**
- * Get a single user from the database given their id or email.
- * @param {String} column either 'email', or 'id
- * @param {String} value the value of the email or id 
+ * Get a single user from the database given their email.
+ * @param {String} email The email of the user.
+ * @return {Promise<{}>} A promise to the user.
  */
 const getUserWithEmail = function(email) {
   let user;
@@ -23,9 +23,9 @@ const getUserWithEmail = function(email) {
 exports.getUserWithEmail = getUserWithEmail;
 
 /**
- * Get a single user from the database given their id or email.
- * @param {String} column either 'email', or 'id
- * @param {String} value the value of the email or id 
+ * Get a single user from the database given their id.
+ * @param {string} id The id of the user.
+ * @return {Promise<{}>} A promise to the user.
  */
 const getUserWithId = function(id) {
   return Promise.resolve(users[id]);
@@ -34,9 +34,9 @@ exports.getUserWithId = getUserWithId;
 
 
 /**
- * Add a user to the database
+ * Add a new user to the database.
  * @param {{name: string, password: string, email: string}} user
- * @return Promise
+ * @return {Promise<{}>} A promise to the user.
  */
 const addUser =  function(user) {
   const userId = Object.keys(users).length + 1;
@@ -46,8 +46,26 @@ const addUser =  function(user) {
 }
 exports.addUser = addUser;
 
+/// Reservations
+
+/**
+ * Get all reservations for a single user.
+ * @param {string} guest_id The id of the user.
+ * @return {Promise<[{}]>} A promise to the reservations.
+ */
+const getAllReservations = function(guest_id) {
+  return getAllProperties(null, 2);
+}
+exports.getAllReservations = getAllReservations;
+
 /// Properties
 
+/**
+ * Get all properties.
+ * @param {{}} options An object containing query options.
+ * @param {*} limit The number of results to return.
+ * @return {Promise<[{}]>}  A promise to the properties.
+ */
 const getAllProperties = function(options, limit = 10) {
   const limitedProperties = {};
   for (let i = 1; i <= limit; i++) {
@@ -58,38 +76,10 @@ const getAllProperties = function(options, limit = 10) {
 exports.getAllProperties = getAllProperties;
 
 
-/// Reservations
-
-const getAllReservations = function(guest_id) {
-  return getAllProperties(null, 2);
-}
-exports.getAllReservations = getAllReservations;
-
-
-/**
- * A property
- * @typedef {Object} Property
- * @property {int} owner_id
- * @property {string} title
- * @property {string} description
- * @property {string} thumbnail_photo_url
- * @property {string} cover_photo_url
- * @property {string} cost_per_night
- * @property {string} street
- * @property {string} city
- * @property {string} provence
- * @property {string} post_code
- * @property {string} country
- * @property {int} parking_spaces
- * @property {int} number_of_bathrooms
- * @property {int} number_of_bedrooms
- */
-
-
 /**
  * Add a property to the database
- * @param {Property} property
- * @return  
+ * @param {{}} property An object containing all of the property details.
+ * @return {Promise<{}>} A promise to the property.
  */
 const addProperty = function(property) {
   const propertyId = Object.keys(properties).length + 1;
