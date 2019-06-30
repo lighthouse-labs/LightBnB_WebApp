@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx nodemon -L server/server"
+    "local": "npx nodemon -L server/server",
+    "start": "node server/server"
   },
   "keywords": [],
   "author": "",
