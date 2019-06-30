@@ -37,7 +37,7 @@ $(() => {
       });
   });
 
-  $('#login-form__cancel').on('click', function() {
+  $('body').on('click', '#login-form__cancel', function() {
     views_manager.show('listings');
     return false;
   });
