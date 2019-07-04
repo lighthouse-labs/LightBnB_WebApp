@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "sass": "sass --watch sass/main.scss:public/styles/main.css",
     "local": "npx nodemon -L server/server",
     "start": "node server/server"
   },
