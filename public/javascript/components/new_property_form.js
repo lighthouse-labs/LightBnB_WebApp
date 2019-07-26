@@ -71,7 +71,7 @@ $(() => {
           </div>
           <div class="new-property-form__field-wrapper">
             <label for="new-property-form__state">Administrative Area</label>
-            <input placeholder="Administrative Area" type="text" name="provence" id="new-property-form__state" />
+            <input placeholder="Administrative Area" type="text" name="province" id="new-property-form__state" />
           </div>
           <div class="new-property-form__field-wrapper">
             <label for="new-property-form__zip">Postal Code</label>
