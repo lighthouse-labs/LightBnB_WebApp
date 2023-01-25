@@ -1,7 +1,6 @@
 const express = require('express');
 const bcrypt = require('bcrypt');
 const database = require('../database');
-const helpers = require('../helpers/helpers');
 
 const router = express.Router();
 
@@ -26,16 +25,19 @@ router.post('/login', (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
 
-  helpers.login(email, password)
+  database.getUserWithEmail(email)
     .then(user => {
       if (!user) {
+        return res.send({ error: "no user with that id" });
+      }
+
+      if (!bcrypt.compareSync(password, user.password)) {
         return res.send({ error: "error" });
       }
 
       req.session.userId = user.id;
       res.send({ user: { name: user.name, email: user.email, id: user.id } });
-    })
-    .catch(e => res.send(e));
+    });
 });
 
 // Log a user out
