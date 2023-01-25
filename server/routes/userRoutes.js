@@ -36,7 +36,13 @@ router.post('/login', (req, res) => {
       }
 
       req.session.userId = user.id;
-      res.send({ user: { name: user.name, email: user.email, id: user.id } });
+      res.send({
+        user: {
+          name: user.name,
+          email: user.email,
+          id: user.id
+        } 
+      });
     });
 });
 
