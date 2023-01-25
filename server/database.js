@@ -1,5 +1,5 @@
-const properties = require('./json/properties.json');
-const users = require('./json/users.json');
+const properties = require("./json/properties.json");
+const users = require("./json/users.json");
 
 /// Users
 
@@ -84,5 +84,5 @@ module.exports = {
   addUser,
   getAllReservations,
   getAllProperties,
-  addProperty
+  addProperty,
 };

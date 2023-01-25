@@ -1,4 +1,7 @@
-.search-property-form, .login-form, .new-property-form, .sign-up-form {
+.search-property-form,
+.login-form,
+.new-property-form,
+.sign-up-form {
   max-width: 400px;
   display: flex;
   flex-direction: column;
@@ -14,7 +17,10 @@
     display: none;
   }
 
-  textarea, select, input, label {
+  textarea,
+  select,
+  input,
+  label {
     margin: 5px 5px;
     width: 100%;
   }
