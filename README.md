@@ -21,7 +21,7 @@
 │   │   ├── index.js
 │   │   ├── network.js
 │   │   └── views_manager.js
-│   └── styles
+│   ├── styles
 │   │   ├── main.css
 │   │   └── main.css.map
 │   └── index.html
