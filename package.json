@@ -4,16 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch sass/main.scss:public/styles/main.css",
-    "local": "npx nodemon -L server/server",
-    "start": "node server/server"
+    "sass": "sass --watch styles/main.scss:public/styles/main.css",
+    "local": "npx nodemon -L server",
+    "start": "node server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.6",
-    "body-parser": "^1.19.0",
     "cookie-session": "^1.3.3",
     "express": "^4.17.1",
     "nodemon": "^1.19.1"
