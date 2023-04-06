@@ -12,7 +12,7 @@ const getUserWithEmail = function (email) {
   let resolvedUser = null;
   for (const userId in users) {
     const user = users[userId];
-    if (user?.email.toLowerCase() === email?.toLowerCase()) {
+    if (user && user.email.toLowerCase() === email.toLowerCase()) {
       resolvedUser = user;
     }
   }
